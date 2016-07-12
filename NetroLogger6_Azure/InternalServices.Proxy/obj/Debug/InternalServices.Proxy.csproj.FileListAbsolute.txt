@@ -1,0 +1,12 @@
+C:\netro\NetroLogger5_Azure\InternalServices.Proxy\bin\Debug\InternalServices.Proxy.dll.config
+C:\netro\NetroLogger5_Azure\InternalServices.Proxy\bin\Debug\InternalServices.Proxy.dll
+C:\netro\NetroLogger5_Azure\InternalServices.Proxy\bin\Debug\InternalServices.Proxy.pdb
+C:\netro\NetroLogger5_Azure\InternalServices.Proxy\obj\Debug\InternalServices.Proxy.dll
+C:\netro\NetroLogger5_Azure\InternalServices.Proxy\obj\Debug\InternalServices.Proxy.pdb
+C:\netro\NetroLogger5_Azure\InternalServices.Proxy\obj\Debug\InternalServices.Proxy.csprojResolveAssemblyReference.cache
+C:\netro\NetroLogger6_Azure\InternalServices.Proxy\bin\Debug\InternalServices.Proxy.dll.config
+C:\netro\NetroLogger6_Azure\InternalServices.Proxy\bin\Debug\InternalServices.Proxy.dll
+C:\netro\NetroLogger6_Azure\InternalServices.Proxy\bin\Debug\InternalServices.Proxy.pdb
+C:\netro\NetroLogger6_Azure\InternalServices.Proxy\obj\Debug\InternalServices.Proxy.csprojResolveAssemblyReference.cache
+C:\netro\NetroLogger6_Azure\InternalServices.Proxy\obj\Debug\InternalServices.Proxy.dll
+C:\netro\NetroLogger6_Azure\InternalServices.Proxy\obj\Debug\InternalServices.Proxy.pdb

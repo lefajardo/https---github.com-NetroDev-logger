@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="LoggerWorker2016" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2015-04.2.6">
+  <Role name="WorkerRole1">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="DiagnosticsConnectionString" value="DefaultEndpointsProtocol=https;AccountName=netrologs;AccountKey=Bi0MLDHWSs/xF8d2I8eoniVAF12XQDYKOVBOe5plu3wtq8D14tZswtDAtqpdy2VP2BAS1DB/Dt47mmS0SlYS/w==" />
+      <Setting name="DataConnectionString" value="DefaultEndpointsProtocol=https;AccountName=netrologs;AccountKey=Bi0MLDHWSs/xF8d2I8eoniVAF12XQDYKOVBOe5plu3wtq8D14tZswtDAtqpdy2VP2BAS1DB/Dt47mmS0SlYS/w==" />
+      <Setting name="AzureSqlConnectionString" value="Data Source=174.129.246.39,1433;Initial Catalog=NetroLog;User ID=netrostats;Password=nstat32ho9t3t9on3" />
+      <Setting name="AzureSqlConnectionString14" value="Data Source=trshcqg14q.database.windows.net;Initial Catalog=NetroLog;User ID=NetroStats;Password=nstaHHT8@hdxp348gt32ho9@t3t9on3@$$$heotthdxTTDIeo385;Encrypt=yes;" />
+      <Setting name="BlobRootString" value="http://netrologs.blob.core.windows.net" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="lester" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="MIIBnQYJKoZIhvcNAQcDoIIBjjCCAYoCAQAxggFOMIIBSgIBADAyMB4xHDAaBgNVBAMME1dpbmRvd3MgQXp1cmUgVG9vbHMCEDspwVWfFpCSSUnvxSV3irowDQYJKoZIhvcNAQEBBQAEggEAn2xYma5UDJfSOe1PvPh93RQ9RYZXwCXysLAZGmGx74d9e7mvlDb+H0H0TacQTFJcA3g6qWIrgmFf3dorKs6z3S2EVPBAx+TVOHbmECuzXJHGysFRDN/fP4/6U8F6l1hsRraQ+l64+FF63cYNY5GugOsnZQ/3/LOWwE7/KsZPGCRk3stRktrW8OGWYkEoLTHxQFOF1HYh9vDJlx7MP2x3oaTdckbmTPZaBY8B7h34QXoaPj6dmufPXUZTVmLDw7MSSKWUAmsEHAqmx/cOunRusDlGp1mcagoU9ONKxs4A5PwHlmbuENMlaEGUvdnhmyRjIF6o0DRQh37ffXIEBHtOXTAzBgkqhkiG9w0BBwEwFAYIKoZIhvcNAwcECL9gAnGGAKG+gBBSfpXKaLwcyDxtkhm0dX6h" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2030-04-07T23:59:59.0000000+00:00" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" />
+    </ConfigurationSettings>
+    <Certificates>
+      <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="98C4C1F77B256F9229B8114062E08973645FE633" thumbprintAlgorithm="sha1" />
+    </Certificates>
+  </Role>
+</ServiceConfiguration>

@@ -1,0 +1,4 @@
+C:\NetroSVG\NetroLoggerUnified\log4net\obj\Release\ResolveAssemblyReference.cache
+C:\NetroSVG\NetroLoggerUnified\build\bin\net\1.0\release\log4net.dll
+C:\NetroSVG\NetroLoggerUnified\build\bin\net\1.0\release\log4net.xml
+C:\NetroSVG\NetroLoggerUnified\log4net\obj\Release\log4net.dll

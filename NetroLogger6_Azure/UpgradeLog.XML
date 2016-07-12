@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="NetroLogger5_Azure">
+</Property><Property Name="Solution File" Value="C:\netro\NetroLogger5_Azure\NetroLogger5_Azure.sln">
+</Property><Property Name="Date" Value="Thursday, September 18, 2014">
+</Property><Property Name="Time" Value="6:18:43 AM">
+</Property></Properties><Event ErrorLevel="1" Project="NetroRTV" Source="NetroRTV\NetroRTV.csproj" Description="Your project is targeting .NET Framework 2.0 or 3.0. If your project uses assemblies requiring a newer .NET Framework, your project will fail to build. You can change the .NET Framework version by clicking Properties on the project menu and then selecting a new version in the '.NET Framework' dropdown box. (In Visual Basic, this is located on the Compile tab by clicking the 'Advanced Compiler Options...' button.)">
+</Event><Event ErrorLevel="2" Project="NetroRTV" Source="NetroRTV\NetroRTV.csproj" Description="Unable to save converted project file.">
+</Event><Event ErrorLevel="3" Project="NetroRTV" Source="NetroRTV\NetroRTV.csproj" Description="Not Converted">
+</Event><Event ErrorLevel="2" Project="" Source="NetroRTV\NetroRTV.csproj" Description="Access to the path 'C:\netro\NetroLogger5_Azure\NetroRTV\NetroRTV.csproj' is denied.">
+</Event></UpgradeLog>

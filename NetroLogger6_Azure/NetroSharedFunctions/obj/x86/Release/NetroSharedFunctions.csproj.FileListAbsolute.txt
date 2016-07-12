@@ -1,0 +1,16 @@
+C:\ServerLogParser4\NetroSharedFunctions\obj\x86\Release\ResolveAssemblyReference.cache
+C:\ServerLogParser4\NetroSharedFunctions\bin\x86\Release\ICSharpCode.SharpZipLib.dll
+C:\ServerLogParser4\NetroSharedFunctions\bin\x86\Release\InternalServices.Proxy.dll
+C:\ServerLogParser4\NetroSharedFunctions\bin\x86\Release\log4net.dll
+C:\ServerLogParser4\NetroSharedFunctions\bin\x86\Release\MediaInfoLib.dll
+C:\ServerLogParser4\NetroSharedFunctions\bin\x86\Release\Telerik.Web.UI.dll
+C:\ServerLogParser4\NetroSharedFunctions\bin\x86\Release\DZ.MediaPlayer.dll
+C:\ServerLogParser4\NetroSharedFunctions\bin\x86\Release\InternalServices.Proxy.pdb
+C:\ServerLogParser4\NetroSharedFunctions\bin\x86\Release\log4net.xml
+C:\ServerLogParser4\NetroSharedFunctions\bin\x86\Release\MediaInfoLib.pdb
+C:\ServerLogParser4\NetroSharedFunctions\bin\x86\Release\Telerik.Web.UI.xml
+C:\ServerLogParser4\NetroSharedFunctions\bin\x86\Release\InternalServices.Proxy.XmlSerializers.dll
+C:\ServerLogParser4\NetroSharedFunctions\obj\x86\Release\NetroSharedFunctions.dll
+C:\ServerLogParser4\NetroSharedFunctions\obj\x86\Release\NetroSharedFunctions.pdb
+C:\ServerLogParser4\NetroSharedFunctions\bin\x86\Release\NetroSharedFunctions.dll
+C:\ServerLogParser4\NetroSharedFunctions\bin\x86\Release\NetroSharedFunctions.pdb

@@ -1,0 +1,4 @@
+C:\ServerLogParser4\log4net\obj\x86\Release\ResolveAssemblyReference.cache
+C:\ServerLogParser4\log4net\bin\x86\Release\log4net.dll
+C:\ServerLogParser4\log4net\bin\x86\Release\log4net.xml
+C:\ServerLogParser4\log4net\obj\x86\Release\log4net.dll

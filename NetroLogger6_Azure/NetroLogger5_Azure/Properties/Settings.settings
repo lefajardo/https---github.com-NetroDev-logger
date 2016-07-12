@@ -1,0 +1,57 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="NetroLogger5_Azure.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="LogsPath1" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">*</Value>
+    </Setting>
+    <Setting Name="LogsPattern1" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">* </Value>
+    </Setting>
+    <Setting Name="LogsType1" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">WZM</Value>
+    </Setting>
+    <Setting Name="BlobRoot" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://netro.blob.core.windows.net</Value>
+    </Setting>
+    <Setting Name="NetroAzureKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">DefaultEndpointsProtocol=https;AccountName=netrologs;AccountKey=Bi0MLDHWSs/xF8d2I8eoniVAF12XQDYKOVBOe5plu3wtq8D14tZswtDAtqpdy2VP2BAS1DB/Dt47mmS0SlYS/w==</Value>
+    </Setting>
+    <Setting Name="AzureLogsRoot" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Logs</Value>
+    </Setting>
+    <Setting Name="Logs2Enabled" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="LogsPath2" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">*</Value>
+    </Setting>
+    <Setting Name="LogsPattern2" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">*</Value>
+    </Setting>
+    <Setting Name="LogsType2" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">IIS</Value>
+    </Setting>
+    <Setting Name="ProcessCurrentFile1" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Y</Value>
+    </Setting>
+    <Setting Name="ProcessCurrentFile" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">N</Value>
+    </Setting>
+    <Setting Name="NetroAzureServer" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">trshcqg14q.database.windows.net</Value>
+    </Setting>
+    <Setting Name="NetroAzureDBUser" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">NetroStats</Value>
+    </Setting>
+    <Setting Name="NetroAzureDBPwd" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">nstaHHT8@hdxp348gt32ho9@t3t9on3@$$$heotthdxTTDIeo385</Value>
+    </Setting>
+    <Setting Name="NetroAzureDBName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">NetroLog</Value>
+    </Setting>
+    <Setting Name="PublicIPThisServer" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">1.2.3.4</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,1578 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.netromedia.com/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.netromedia.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.netromedia.com/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="ValidAuthKey">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ID" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="FileManagerAuthKey" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidAuthKeyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ValidAuthKeyResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PubPointIsAvailable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Key" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPubPoint" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PubPointIsAvailableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PubPointIsAvailableResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetAllTermsAccepted">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Key" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="gAccountID" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetAllTermsAcceptedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetAllTermsAcceptedResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetTOB">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Key" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="gAccountID" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="bAccepted" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetTOBResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetTOBResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetTOS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Key" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="gAccountID" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="bAccepted" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetTOSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetTOSResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetTOU">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Key" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="gAccountID" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="bAccepted" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetTOUResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetTOUResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CallerIP">
+        <s:complexType />
+      </s:element>
+      <s:element name="CallerIPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CallerIPResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckEmailStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Key" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="sEmail" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckEmailStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckEmailStatusResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Key" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="gOrderID" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ProcessOrderResult" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAccountId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Key" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="gContactId" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAccountIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getAccountIdResult" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePubPoint">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Key" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="gAccountID" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="gPubPointID" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="iQuantity" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sChannelName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sServiceCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPPType" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="iMaxBitRate" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="iMaxConnections" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePubPointResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdatePubPointResult" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddCreditCard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Key" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="sCardType" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="iMonth" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="iYear" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sCardNum" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="iCVV" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sNameOnCard" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="gAccountID" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="sStreet" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sCity" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sState" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sCountry" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPostalCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="gCardID" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddCreditCardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddCreditCardResult" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="gCardID" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CloneOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Key" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="gTemplateOrderID" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="gAccountID" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="gContactID" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CloneOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CloneOrderResult" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CloneService">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Key" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="gOrderID" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="iPosition" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="gServiceID" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="iQuantity" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CloneServiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CloneServiceResult" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFileManagerKey">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Key" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="gLineItemID" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFileManagerKeyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetFileManagerKeyResult" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetupFreeTrial">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Key" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="gID" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="sReturnUrl" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sError" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sSalutation" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sFirstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sLastName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPubPoint" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sLastPageVisited" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPhoneWork" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sStreet" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sCity" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sState" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPostal" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sCountry" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sDescription" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sAccountName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sMPI" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sAd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sWebsiteUrl" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sSearchString" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetupFreeTrialResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetupFreeTrialResult" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="gID" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="sReturnUrl" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Orders">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Key" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="gOrderID" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OrdersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OrdersResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Programs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Key" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProgramsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProgramsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Services">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Key" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ServicesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ServicesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getMPIS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Key" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getMPISResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getMPISResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OrdersLineItems">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Key" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="gOrderID" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OrdersLineItemsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OrdersLineItemsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FTPServiceTable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Key" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="serverIP" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FTPServiceTableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FTPServiceTableResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ServerLineItems">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Key" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="serverIP" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ServerLineItemsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ServerLineItemsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OrdersLineItemsDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Key" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="gOrderLineItemID" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OrdersLineItemsDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OrdersLineItemsDetailResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ServersPrimaryService">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Key" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="serverIP" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ServersPrimaryServiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ServersPrimaryServiceResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getActiveStreamServers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Key" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getActiveStreamServersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getActiveStreamServersResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StreamCounters">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Key" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="BILLING_ACCOUNT_ID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StreamCountersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StreamCountersResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PublishDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Key" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="gOrderLineItemID" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PublishDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PublishDetailsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TermsAccepted">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Key" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="gAccountID" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="TOBAccepted" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="TOSAccepted" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="TOUAccepted" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TermsAcceptedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TOBAccepted" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="TOSAccepted" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="TOUAccepted" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LineItemDelete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Key" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="gOrderLineItemID" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LineItemDeleteResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ValidToken">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Key" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="sToken" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidTokenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ValidTokenResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OrderServiceCodes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Key" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="gOrderID" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OrderServiceCodesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OrderServiceCodesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ValidAuthKeySoapIn">
+    <wsdl:part name="parameters" element="tns:ValidAuthKey" />
+  </wsdl:message>
+  <wsdl:message name="ValidAuthKeySoapOut">
+    <wsdl:part name="parameters" element="tns:ValidAuthKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="PubPointIsAvailableSoapIn">
+    <wsdl:part name="parameters" element="tns:PubPointIsAvailable" />
+  </wsdl:message>
+  <wsdl:message name="PubPointIsAvailableSoapOut">
+    <wsdl:part name="parameters" element="tns:PubPointIsAvailableResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetAllTermsAcceptedSoapIn">
+    <wsdl:part name="parameters" element="tns:SetAllTermsAccepted" />
+  </wsdl:message>
+  <wsdl:message name="SetAllTermsAcceptedSoapOut">
+    <wsdl:part name="parameters" element="tns:SetAllTermsAcceptedResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetTOBSoapIn">
+    <wsdl:part name="parameters" element="tns:SetTOB" />
+  </wsdl:message>
+  <wsdl:message name="SetTOBSoapOut">
+    <wsdl:part name="parameters" element="tns:SetTOBResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetTOSSoapIn">
+    <wsdl:part name="parameters" element="tns:SetTOS" />
+  </wsdl:message>
+  <wsdl:message name="SetTOSSoapOut">
+    <wsdl:part name="parameters" element="tns:SetTOSResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetTOUSoapIn">
+    <wsdl:part name="parameters" element="tns:SetTOU" />
+  </wsdl:message>
+  <wsdl:message name="SetTOUSoapOut">
+    <wsdl:part name="parameters" element="tns:SetTOUResponse" />
+  </wsdl:message>
+  <wsdl:message name="CallerIPSoapIn">
+    <wsdl:part name="parameters" element="tns:CallerIP" />
+  </wsdl:message>
+  <wsdl:message name="CallerIPSoapOut">
+    <wsdl:part name="parameters" element="tns:CallerIPResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckEmailStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckEmailStatus" />
+  </wsdl:message>
+  <wsdl:message name="CheckEmailStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckEmailStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessOrder" />
+  </wsdl:message>
+  <wsdl:message name="ProcessOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAccountIdSoapIn">
+    <wsdl:part name="parameters" element="tns:getAccountId" />
+  </wsdl:message>
+  <wsdl:message name="getAccountIdSoapOut">
+    <wsdl:part name="parameters" element="tns:getAccountIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePubPointSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdatePubPoint" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePubPointSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdatePubPointResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddCreditCardSoapIn">
+    <wsdl:part name="parameters" element="tns:AddCreditCard" />
+  </wsdl:message>
+  <wsdl:message name="AddCreditCardSoapOut">
+    <wsdl:part name="parameters" element="tns:AddCreditCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="CloneOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:CloneOrder" />
+  </wsdl:message>
+  <wsdl:message name="CloneOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:CloneOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="CloneServiceSoapIn">
+    <wsdl:part name="parameters" element="tns:CloneService" />
+  </wsdl:message>
+  <wsdl:message name="CloneServiceSoapOut">
+    <wsdl:part name="parameters" element="tns:CloneServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFileManagerKeySoapIn">
+    <wsdl:part name="parameters" element="tns:GetFileManagerKey" />
+  </wsdl:message>
+  <wsdl:message name="GetFileManagerKeySoapOut">
+    <wsdl:part name="parameters" element="tns:GetFileManagerKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetupFreeTrialSoapIn">
+    <wsdl:part name="parameters" element="tns:SetupFreeTrial" />
+  </wsdl:message>
+  <wsdl:message name="SetupFreeTrialSoapOut">
+    <wsdl:part name="parameters" element="tns:SetupFreeTrialResponse" />
+  </wsdl:message>
+  <wsdl:message name="OrdersSoapIn">
+    <wsdl:part name="parameters" element="tns:Orders" />
+  </wsdl:message>
+  <wsdl:message name="OrdersSoapOut">
+    <wsdl:part name="parameters" element="tns:OrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProgramsSoapIn">
+    <wsdl:part name="parameters" element="tns:Programs" />
+  </wsdl:message>
+  <wsdl:message name="ProgramsSoapOut">
+    <wsdl:part name="parameters" element="tns:ProgramsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicesSoapIn">
+    <wsdl:part name="parameters" element="tns:Services" />
+  </wsdl:message>
+  <wsdl:message name="ServicesSoapOut">
+    <wsdl:part name="parameters" element="tns:ServicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getMPISSoapIn">
+    <wsdl:part name="parameters" element="tns:getMPIS" />
+  </wsdl:message>
+  <wsdl:message name="getMPISSoapOut">
+    <wsdl:part name="parameters" element="tns:getMPISResponse" />
+  </wsdl:message>
+  <wsdl:message name="OrdersLineItemsSoapIn">
+    <wsdl:part name="parameters" element="tns:OrdersLineItems" />
+  </wsdl:message>
+  <wsdl:message name="OrdersLineItemsSoapOut">
+    <wsdl:part name="parameters" element="tns:OrdersLineItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="FTPServiceTableSoapIn">
+    <wsdl:part name="parameters" element="tns:FTPServiceTable" />
+  </wsdl:message>
+  <wsdl:message name="FTPServiceTableSoapOut">
+    <wsdl:part name="parameters" element="tns:FTPServiceTableResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServerLineItemsSoapIn">
+    <wsdl:part name="parameters" element="tns:ServerLineItems" />
+  </wsdl:message>
+  <wsdl:message name="ServerLineItemsSoapOut">
+    <wsdl:part name="parameters" element="tns:ServerLineItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="OrdersLineItemsDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:OrdersLineItemsDetail" />
+  </wsdl:message>
+  <wsdl:message name="OrdersLineItemsDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:OrdersLineItemsDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServersPrimaryServiceSoapIn">
+    <wsdl:part name="parameters" element="tns:ServersPrimaryService" />
+  </wsdl:message>
+  <wsdl:message name="ServersPrimaryServiceSoapOut">
+    <wsdl:part name="parameters" element="tns:ServersPrimaryServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="getActiveStreamServersSoapIn">
+    <wsdl:part name="parameters" element="tns:getActiveStreamServers" />
+  </wsdl:message>
+  <wsdl:message name="getActiveStreamServersSoapOut">
+    <wsdl:part name="parameters" element="tns:getActiveStreamServersResponse" />
+  </wsdl:message>
+  <wsdl:message name="StreamCountersSoapIn">
+    <wsdl:part name="parameters" element="tns:StreamCounters" />
+  </wsdl:message>
+  <wsdl:message name="StreamCountersSoapOut">
+    <wsdl:part name="parameters" element="tns:StreamCountersResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublishDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:PublishDetails" />
+  </wsdl:message>
+  <wsdl:message name="PublishDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:PublishDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="TermsAcceptedSoapIn">
+    <wsdl:part name="parameters" element="tns:TermsAccepted" />
+  </wsdl:message>
+  <wsdl:message name="TermsAcceptedSoapOut">
+    <wsdl:part name="parameters" element="tns:TermsAcceptedResponse" />
+  </wsdl:message>
+  <wsdl:message name="LineItemDeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:LineItemDelete" />
+  </wsdl:message>
+  <wsdl:message name="LineItemDeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:LineItemDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidTokenSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidToken" />
+  </wsdl:message>
+  <wsdl:message name="ValidTokenSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="OrderServiceCodesSoapIn">
+    <wsdl:part name="parameters" element="tns:OrderServiceCodes" />
+  </wsdl:message>
+  <wsdl:message name="OrderServiceCodesSoapOut">
+    <wsdl:part name="parameters" element="tns:OrderServiceCodesResponse" />
+  </wsdl:message>
+  <wsdl:message name="CallerIPHttpGetIn" />
+  <wsdl:message name="CallerIPHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="CallerIPHttpPostIn" />
+  <wsdl:message name="CallerIPHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="SoapzorSoap">
+    <wsdl:operation name="ValidAuthKey">
+      <wsdl:input message="tns:ValidAuthKeySoapIn" />
+      <wsdl:output message="tns:ValidAuthKeySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PubPointIsAvailable">
+      <wsdl:input message="tns:PubPointIsAvailableSoapIn" />
+      <wsdl:output message="tns:PubPointIsAvailableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetAllTermsAccepted">
+      <wsdl:input message="tns:SetAllTermsAcceptedSoapIn" />
+      <wsdl:output message="tns:SetAllTermsAcceptedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetTOB">
+      <wsdl:input message="tns:SetTOBSoapIn" />
+      <wsdl:output message="tns:SetTOBSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetTOS">
+      <wsdl:input message="tns:SetTOSSoapIn" />
+      <wsdl:output message="tns:SetTOSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetTOU">
+      <wsdl:input message="tns:SetTOUSoapIn" />
+      <wsdl:output message="tns:SetTOUSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CallerIP">
+      <wsdl:input message="tns:CallerIPSoapIn" />
+      <wsdl:output message="tns:CallerIPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckEmailStatus">
+      <wsdl:input message="tns:CheckEmailStatusSoapIn" />
+      <wsdl:output message="tns:CheckEmailStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessOrder">
+      <wsdl:input message="tns:ProcessOrderSoapIn" />
+      <wsdl:output message="tns:ProcessOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAccountId">
+      <wsdl:input message="tns:getAccountIdSoapIn" />
+      <wsdl:output message="tns:getAccountIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePubPoint">
+      <wsdl:input message="tns:UpdatePubPointSoapIn" />
+      <wsdl:output message="tns:UpdatePubPointSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCreditCard">
+      <wsdl:input message="tns:AddCreditCardSoapIn" />
+      <wsdl:output message="tns:AddCreditCardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CloneOrder">
+      <wsdl:input message="tns:CloneOrderSoapIn" />
+      <wsdl:output message="tns:CloneOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CloneService">
+      <wsdl:input message="tns:CloneServiceSoapIn" />
+      <wsdl:output message="tns:CloneServiceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFileManagerKey">
+      <wsdl:input message="tns:GetFileManagerKeySoapIn" />
+      <wsdl:output message="tns:GetFileManagerKeySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetupFreeTrial">
+      <wsdl:input message="tns:SetupFreeTrialSoapIn" />
+      <wsdl:output message="tns:SetupFreeTrialSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Orders">
+      <wsdl:input message="tns:OrdersSoapIn" />
+      <wsdl:output message="tns:OrdersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Programs">
+      <wsdl:input message="tns:ProgramsSoapIn" />
+      <wsdl:output message="tns:ProgramsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Services">
+      <wsdl:input message="tns:ServicesSoapIn" />
+      <wsdl:output message="tns:ServicesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getMPIS">
+      <wsdl:input message="tns:getMPISSoapIn" />
+      <wsdl:output message="tns:getMPISSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OrdersLineItems">
+      <wsdl:input message="tns:OrdersLineItemsSoapIn" />
+      <wsdl:output message="tns:OrdersLineItemsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FTPServiceTable">
+      <wsdl:input message="tns:FTPServiceTableSoapIn" />
+      <wsdl:output message="tns:FTPServiceTableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ServerLineItems">
+      <wsdl:input message="tns:ServerLineItemsSoapIn" />
+      <wsdl:output message="tns:ServerLineItemsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OrdersLineItemsDetail">
+      <wsdl:input message="tns:OrdersLineItemsDetailSoapIn" />
+      <wsdl:output message="tns:OrdersLineItemsDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ServersPrimaryService">
+      <wsdl:input message="tns:ServersPrimaryServiceSoapIn" />
+      <wsdl:output message="tns:ServersPrimaryServiceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getActiveStreamServers">
+      <wsdl:input message="tns:getActiveStreamServersSoapIn" />
+      <wsdl:output message="tns:getActiveStreamServersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StreamCounters">
+      <wsdl:input message="tns:StreamCountersSoapIn" />
+      <wsdl:output message="tns:StreamCountersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PublishDetails">
+      <wsdl:input message="tns:PublishDetailsSoapIn" />
+      <wsdl:output message="tns:PublishDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TermsAccepted">
+      <wsdl:input message="tns:TermsAcceptedSoapIn" />
+      <wsdl:output message="tns:TermsAcceptedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LineItemDelete">
+      <wsdl:input message="tns:LineItemDeleteSoapIn" />
+      <wsdl:output message="tns:LineItemDeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidToken">
+      <wsdl:input message="tns:ValidTokenSoapIn" />
+      <wsdl:output message="tns:ValidTokenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OrderServiceCodes">
+      <wsdl:input message="tns:OrderServiceCodesSoapIn" />
+      <wsdl:output message="tns:OrderServiceCodesSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SoapzorHttpGet">
+    <wsdl:operation name="CallerIP">
+      <wsdl:input message="tns:CallerIPHttpGetIn" />
+      <wsdl:output message="tns:CallerIPHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SoapzorHttpPost">
+    <wsdl:operation name="CallerIP">
+      <wsdl:input message="tns:CallerIPHttpPostIn" />
+      <wsdl:output message="tns:CallerIPHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SoapzorSoap" type="tns:SoapzorSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ValidAuthKey">
+      <soap:operation soapAction="http://www.netromedia.com/ValidAuthKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PubPointIsAvailable">
+      <soap:operation soapAction="http://www.netromedia.com/PubPointIsAvailable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAllTermsAccepted">
+      <soap:operation soapAction="http://www.netromedia.com/SetAllTermsAccepted" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTOB">
+      <soap:operation soapAction="http://www.netromedia.com/SetTOB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTOS">
+      <soap:operation soapAction="http://www.netromedia.com/SetTOS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTOU">
+      <soap:operation soapAction="http://www.netromedia.com/SetTOU" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CallerIP">
+      <soap:operation soapAction="http://www.netromedia.com/CallerIP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckEmailStatus">
+      <soap:operation soapAction="http://www.netromedia.com/CheckEmailStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessOrder">
+      <soap:operation soapAction="http://www.netromedia.com/ProcessOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountId">
+      <soap:operation soapAction="http://www.netromedia.com/getAccountId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePubPoint">
+      <soap:operation soapAction="http://www.netromedia.com/UpdatePubPoint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCreditCard">
+      <soap:operation soapAction="http://www.netromedia.com/AddCreditCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloneOrder">
+      <soap:operation soapAction="http://www.netromedia.com/CloneOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloneService">
+      <soap:operation soapAction="http://www.netromedia.com/CloneService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileManagerKey">
+      <soap:operation soapAction="http://www.netromedia.com/GetFileManagerKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetupFreeTrial">
+      <soap:operation soapAction="http://www.netromedia.com/SetupFreeTrial" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Orders">
+      <soap:operation soapAction="http://www.netromedia.com/Orders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Programs">
+      <soap:operation soapAction="http://www.netromedia.com/Programs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Services">
+      <soap:operation soapAction="http://www.netromedia.com/Services" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMPIS">
+      <soap:operation soapAction="http://www.netromedia.com/getMPIS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrdersLineItems">
+      <soap:operation soapAction="http://www.netromedia.com/OrdersLineItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FTPServiceTable">
+      <soap:operation soapAction="http://www.netromedia.com/FTPServiceTable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ServerLineItems">
+      <soap:operation soapAction="http://www.netromedia.com/ServerLineItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrdersLineItemsDetail">
+      <soap:operation soapAction="http://www.netromedia.com/OrdersLineItemsDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ServersPrimaryService">
+      <soap:operation soapAction="http://www.netromedia.com/ServersPrimaryService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getActiveStreamServers">
+      <soap:operation soapAction="http://www.netromedia.com/getActiveStreamServers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StreamCounters">
+      <soap:operation soapAction="http://www.netromedia.com/StreamCounters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PublishDetails">
+      <soap:operation soapAction="http://www.netromedia.com/PublishDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TermsAccepted">
+      <soap:operation soapAction="http://www.netromedia.com/TermsAccepted" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LineItemDelete">
+      <soap:operation soapAction="http://www.netromedia.com/LineItemDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidToken">
+      <soap:operation soapAction="http://www.netromedia.com/ValidToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrderServiceCodes">
+      <soap:operation soapAction="http://www.netromedia.com/OrderServiceCodes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SoapzorSoap12" type="tns:SoapzorSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ValidAuthKey">
+      <soap12:operation soapAction="http://www.netromedia.com/ValidAuthKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PubPointIsAvailable">
+      <soap12:operation soapAction="http://www.netromedia.com/PubPointIsAvailable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAllTermsAccepted">
+      <soap12:operation soapAction="http://www.netromedia.com/SetAllTermsAccepted" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTOB">
+      <soap12:operation soapAction="http://www.netromedia.com/SetTOB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTOS">
+      <soap12:operation soapAction="http://www.netromedia.com/SetTOS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTOU">
+      <soap12:operation soapAction="http://www.netromedia.com/SetTOU" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CallerIP">
+      <soap12:operation soapAction="http://www.netromedia.com/CallerIP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckEmailStatus">
+      <soap12:operation soapAction="http://www.netromedia.com/CheckEmailStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessOrder">
+      <soap12:operation soapAction="http://www.netromedia.com/ProcessOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountId">
+      <soap12:operation soapAction="http://www.netromedia.com/getAccountId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePubPoint">
+      <soap12:operation soapAction="http://www.netromedia.com/UpdatePubPoint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCreditCard">
+      <soap12:operation soapAction="http://www.netromedia.com/AddCreditCard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloneOrder">
+      <soap12:operation soapAction="http://www.netromedia.com/CloneOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloneService">
+      <soap12:operation soapAction="http://www.netromedia.com/CloneService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileManagerKey">
+      <soap12:operation soapAction="http://www.netromedia.com/GetFileManagerKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetupFreeTrial">
+      <soap12:operation soapAction="http://www.netromedia.com/SetupFreeTrial" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Orders">
+      <soap12:operation soapAction="http://www.netromedia.com/Orders" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Programs">
+      <soap12:operation soapAction="http://www.netromedia.com/Programs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Services">
+      <soap12:operation soapAction="http://www.netromedia.com/Services" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMPIS">
+      <soap12:operation soapAction="http://www.netromedia.com/getMPIS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrdersLineItems">
+      <soap12:operation soapAction="http://www.netromedia.com/OrdersLineItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FTPServiceTable">
+      <soap12:operation soapAction="http://www.netromedia.com/FTPServiceTable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ServerLineItems">
+      <soap12:operation soapAction="http://www.netromedia.com/ServerLineItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrdersLineItemsDetail">
+      <soap12:operation soapAction="http://www.netromedia.com/OrdersLineItemsDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ServersPrimaryService">
+      <soap12:operation soapAction="http://www.netromedia.com/ServersPrimaryService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getActiveStreamServers">
+      <soap12:operation soapAction="http://www.netromedia.com/getActiveStreamServers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StreamCounters">
+      <soap12:operation soapAction="http://www.netromedia.com/StreamCounters" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PublishDetails">
+      <soap12:operation soapAction="http://www.netromedia.com/PublishDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TermsAccepted">
+      <soap12:operation soapAction="http://www.netromedia.com/TermsAccepted" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LineItemDelete">
+      <soap12:operation soapAction="http://www.netromedia.com/LineItemDelete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidToken">
+      <soap12:operation soapAction="http://www.netromedia.com/ValidToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrderServiceCodes">
+      <soap12:operation soapAction="http://www.netromedia.com/OrderServiceCodes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SoapzorHttpGet" type="tns:SoapzorHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="CallerIP">
+      <http:operation location="/CallerIP" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SoapzorHttpPost" type="tns:SoapzorHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="CallerIP">
+      <http:operation location="/CallerIP" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Soapzor">
+    <wsdl:port name="SoapzorSoap" binding="tns:SoapzorSoap">
+      <soap:address location="https://login.netromedia.com/InternalServices/Soapzor.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SoapzorSoap12" binding="tns:SoapzorSoap12">
+      <soap12:address location="https://login.netromedia.com/InternalServices/Soapzor.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SoapzorHttpGet" binding="tns:SoapzorHttpGet">
+      <http:address location="https://login.netromedia.com/InternalServices/Soapzor.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SoapzorHttpPost" binding="tns:SoapzorHttpPost">
+      <http:address location="https://login.netromedia.com/InternalServices/Soapzor.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,6 @@
+C:\NetroSVG\log4net_src\log4net-1.2.10\build\bin\net\1.0\debug\log4net.dll
+C:\NetroSVG\log4net_src\log4net-1.2.10\build\bin\net\1.0\debug\log4net.pdb
+C:\NetroSVG\log4net_src\log4net-1.2.10\build\bin\net\1.0\debug\log4net.xml
+C:\NetroSVG\log4net_src\log4net-1.2.10\src\obj\Debug\ResolveAssemblyReference.cache
+C:\NetroSVG\log4net_src\log4net-1.2.10\src\obj\Debug\log4net.dll
+C:\NetroSVG\log4net_src\log4net-1.2.10\src\obj\Debug\log4net.pdb

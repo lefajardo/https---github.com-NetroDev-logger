@@ -1,0 +1,10 @@
+DiagnosticsPluginLauncher.exe Information: 0 : [7/1/2016 3:00:45 PM] Emulator config file set to C:\netro\LoggerWorker2016\LoggerWorker2016\csx\Debug\roles\WorkerRole1\approot\diagnostics.wadcfgx
+DiagnosticsPluginLauncher.exe Information: 0 : [7/1/2016 3:00:45 PM] DiagnosticsStoreRootPath set to: C:\Users\lester\AppData\Local\dftmp\Resources\b2cdc24c-7629-41ec-a7e7-eee87ce6ea7e
+DiagnosticsPluginLauncher.exe Information: 0 : [7/1/2016 3:00:45 PM] Loading config file: C:\netro\LoggerWorker2016\LoggerWorker2016\csx\Debug\roles\WorkerRole1\approot\diagnostics.wadcfgx
+DiagnosticsPluginLauncher.exe Information: 0 : [7/1/2016 3:00:45 PM] Config file to read: C:\netro\LoggerWorker2016\LoggerWorker2016\csx\Debug\roles\WorkerRole1\approot\diagnostics.wadcfgx
+DiagnosticsPluginLauncher.exe Information: 0 : [7/1/2016 3:00:45 PM] Checking VM Type
+DiagnosticsPluginLauncher.exe Information: 0 : [7/1/2016 3:00:45 PM] Emulator config file set to C:\netro\LoggerWorker2016\LoggerWorker2016\csx\Debug\roles\WorkerRole1\approot\diagnostics.wadcfgx
+DiagnosticsPluginLauncher.exe Information: 0 : [7/1/2016 3:00:45 PM] Extension set to Emulator Mode
+DiagnosticsPluginLauncher.exe Information: 0 : [7/1/2016 3:00:45 PM] Reading XML configuration file
+DiagnosticsPluginLauncher.exe Information: 0 : [7/1/2016 3:00:46 PM] Bypassing private config decryption
+DiagnosticsPluginLauncher.exe Information: 0 : [7/1/2016 3:00:46 PM] Stopping the running plugin, if any
