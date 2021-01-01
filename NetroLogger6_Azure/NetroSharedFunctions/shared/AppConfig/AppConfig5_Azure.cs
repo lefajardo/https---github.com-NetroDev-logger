@@ -49,7 +49,10 @@ namespace NetroMedia.SharedFunctions
         public string RTV_Password { get; set; }
         public string RTV_Encrypt { get; set; }
 
-        
+
+        public string Service1 { get; set; }
+        public string Service2 { get; set; }
+
         #endregion
 
         #region Constructor
@@ -59,6 +62,10 @@ namespace NetroMedia.SharedFunctions
             Wowzacounters_Address = "http://localhost:8086/connectioncounts";
             Wowzacounters_User = "netroadmin";
             Wowzacounters_Pwd = "netroadmin";
+
+
+            Service1 = "";
+            Service2 = "";
 
             RTV_Service_Type = "WMS";
             RTV_Server = "tcp:cqfxnpw8jr.database.windows.net";

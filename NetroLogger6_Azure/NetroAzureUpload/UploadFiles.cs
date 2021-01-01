@@ -8,7 +8,7 @@ using Microsoft.WindowsAzure.StorageClient;
 using Microsoft.WindowsAzure.ServiceRuntime;
 using Microsoft.WindowsAzure.Diagnostics;
 */
-
+/*
 using Microsoft.WindowsAzure;
 //using Microsoft.WindowsAzure.Diagnostics;
 //using Microsoft.WindowsAzure.ServiceRuntime;
@@ -18,12 +18,20 @@ using Microsoft.WindowsAzure.Storage.Blob;
 using Microsoft.WindowsAzure.Storage.Queue;
 using Microsoft.WindowsAzure.Storage.Shared;
 using Microsoft.WindowsAzure.Storage.Table;
-
+*/
 using System.Security.Cryptography ;
 using System.Diagnostics;
 using NetroMedia.SharedFunctions;
 using System.Data;
 using System.Data.SqlClient;
+
+using Azure.Storage.Blobs;
+using Microsoft.WindowsAzure.Storage.Table;
+using Microsoft.WindowsAzure.Storage.Blob;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Queue;
+using Azure.Storage.Queues;
+using Azure.Storage.Blobs.Models;
 
 namespace NetroAzureUpload
 {
@@ -106,12 +114,12 @@ namespace NetroAzureUpload
     }
     public class UploadFiles
     {
-        CloudBlobClient blobStorage;
+        BlobContainerClient blobStorage;
         string ConfigSetterString = "";
         string blobRoot = "";
         string logsRoot = "";
         CloudStorageAccount account;
-        CloudQueue queue;
+        QueueClient queue;
         string aztTableName = "UPLOADEDLOGFILES5";
         string dupTableName = "DUPLICATEDLOGFILES5";
         string serverinvTableName = "SERVERINVENTORY";
@@ -158,15 +166,24 @@ namespace NetroAzureUpload
 
         public bool fileAlreadyProcessed(string filetype, string filename, string serverip, string md5, string connstring, string servername) {
             bool rt = false;
+            /*
             CloudTableClient ctc = new CloudTableClient( new Uri( account.TableEndpoint.AbsoluteUri), account.Credentials);
             
-            //ctc.CreateTableIfNotExist(aztTableName);
-            //TableServiceContext tsc = ctc.GetDataServiceContext();
-
             var cloudtable = ctc.GetTableReference(aztTableName);
             cloudtable.CreateIfNotExists();
-            
-                     try
+            */
+
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connstring);
+
+            // Create the table client.
+            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+
+            // Create the table if it doesn't exist.
+
+            CloudTable cloudTable = tableClient.GetTableReference(aztTableName);
+            cloudTable.CreateIfNotExists();
+
+            try
             {
 
 
@@ -180,7 +197,7 @@ namespace NetroAzureUpload
                      )
                 );
 
-                foreach (UploadedLogFiles table in cloudtable.ExecuteQuery(query))
+                foreach (UploadedLogFiles table in cloudTable.ExecuteQuery(query))
                 {
 
                     /*
@@ -198,7 +215,7 @@ namespace NetroAzureUpload
 
                         Netro_Log4.writeLocalServiceLog("NetroLogger5", Environment.MachineName, 0, string.Format("record already exists. filetype ={0}  md5 = {1} serverid={2}  servername={3}  date={4} name={5} ", filetype, md5, table.SERVER_ID, table.SERVER_NAME, table.DATE_ENTERED, table.FILE_NAME));
 
-                        addfileToDupeLog(filetype, filename, serverip, servername, md5);
+                        addfileToDupeLog(filetype, filename, serverip, servername, md5, connstring);
 
                         rt = true;
                     }
@@ -221,27 +238,31 @@ namespace NetroAzureUpload
             return rt;
         }
 
-        void addfileToDupeLog(string filetype, string filename_, string serverip, string servername, string md5_)
+        void addfileToDupeLog(string filetype, string filename_, string serverip, string servername, string md5_, string connstring)
         {
 
             //Netro_Log4.writeLocalServiceLog("NetroLogger5", Environment.MachineName, 0, "add file to dupe log " + filename_);
             try
             {
-                //Netro_Log4.writeLocalServiceLog("NetroLogger5", Environment.MachineName, 0, "upd 1 " + filename_);
+
+                CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connstring);
+
+                // Create the table client.
+                CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+
+                // Create the table if it doesn't exist.
+
+                CloudTable cloudTable = tableClient.GetTableReference(dupTableName);
+                cloudTable.CreateIfNotExists();
+
+                /*
                 CloudTableClient ctc = new CloudTableClient(new Uri( account.TableEndpoint.ToString()), account.Credentials);
 
 
                 var cloudtable = ctc.GetTableReference(dupTableName);
                 cloudtable.CreateIfNotExists();
-
-
-                
-                        /*
-                        ctc.CreateTableIfNotExist(dupTableName);
-                
-                TableServiceContext tsc = ctc.GetDataServiceContext();
-                tsc.ResolveType = (unused) => typeof(DuplicatedLogFiles);
                 */
+
                 serverip = processkey(serverip);
                 filename_ = processkey(filename_);
 
@@ -259,7 +280,7 @@ namespace NetroAzureUpload
 
                 TableBatchOperation batchOperation = new TableBatchOperation();
                 batchOperation.Insert(lgs);
-                cloudtable.ExecuteBatch(batchOperation);
+                cloudTable.ExecuteBatch(batchOperation);
                 //  Netro_Log4.writeLocalServiceLog("NetroLogger5", Environment.MachineName, 0, "upd 3 " + filename_);
                 //tsc.AddObject(dupTableName, lgs);
                 //Netro_Log4.writeLocalServiceLog("NetroLogger5", Environment.MachineName, 0, "upd 4" + filename_);
@@ -278,14 +299,28 @@ namespace NetroAzureUpload
         void UpdateProcessedFile(string filetype, string filename_, string serverip,  string servername, string bloburl, string connstring, string md5_)
         {
             
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connstring);
+
+            // Create the table client.
+            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+
+            // Create the table if it doesn't exist.
             
-            CloudTableClient ctc = new CloudTableClient( new Uri( account.TableEndpoint.ToString()), account.Credentials);            
-/*            ctc.CreateTableIfNotExist(aztTableName);            
-            TableServiceContext tsc = ctc.GetDataServiceContext();
-            tsc.ResolveType = (unused) => typeof(UploadedLogFiles);*/
+            CloudTable cloudTable = tableClient.GetTableReference(aztTableName);
+            cloudTable.CreateIfNotExists();
+
+            
+            
+            
+
+            
+/*            CloudTableClient ctc = new CloudTableClient( new Uri( account.TableEndpoint.ToString()), account.Credentials);            
             var cloudtable = ctc.GetTableReference(aztTableName);
             cloudtable.CreateIfNotExists();
+*/
 
+
+            
 
             serverip = processkey(serverip);
             filename_ = processkey(filename_);
@@ -304,28 +339,34 @@ namespace NetroAzureUpload
 
             TableBatchOperation batchOperation = new TableBatchOperation();
             batchOperation.Insert(lgs);
-            cloudtable.ExecuteBatch(batchOperation);
-            //    Netro_Log4.writeLocalServiceLog("NetroLogger5", Environment.MachineName, 0, "updx 3 " + filename_);
-       //     tsc.AddObject(aztTableName,lgs);
-           // Netro_Log4.writeLocalServiceLog("NetroLogger5", Environment.MachineName, 0, "updx 4" + filename_);
-      //      tsc.SaveChanges();
+
+            cloudTable.ExecuteBatch(batchOperation);
 
             Netro_Log4.writeLocalServiceLog("NetroLogger5", Environment.MachineName, 0, "File uploaded to logs table");
             
         }
 
         public void UpdateServerInventory
-            (string filetype, string filename_, string serverip, string servername, string fileDateTime)
+            (string filetype, string filename_, string serverip, string servername, string fileDateTime, string connstring)
         {
 
 
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connstring);
+
+            // Create the table client.
+            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+
+            // Create the table if it doesn't exist.
+
+            CloudTable cloudTable = tableClient.GetTableReference(serverinvTableName);
+            cloudTable.CreateIfNotExists();
+
+            /*
             CloudTableClient ctc = new CloudTableClient( new Uri( account.TableEndpoint.ToString()), account.Credentials);
-      /*      ctc.CreateTableIfNotExist(serverinvTableName);
-            TableServiceContext tsc = ctc.GetDataServiceContext();
-            tsc.ResolveType = (unused) => typeof(ServerInventory);*/
+      
             var cloudtable = ctc.GetTableReference(aztTableName);
             cloudtable.CreateIfNotExists();
-
+            */
 
 
             serverip = processkey(serverip);
@@ -337,7 +378,7 @@ namespace NetroAzureUpload
                 TableOperation retrieveOperation = TableOperation.Retrieve<ServerInventory>(filetype, serverip);
 
                 // Execute the operation.
-                TableResult retrievedResult = cloudtable.Execute(retrieveOperation);
+                TableResult retrievedResult = cloudTable.Execute(retrieveOperation);
 
                 // Assign the result to a CustomerEntity object.
                 ServerInventory table = (ServerInventory)retrievedResult.Result;
@@ -349,33 +390,9 @@ namespace NetroAzureUpload
                     TableOperation updateOperation = TableOperation.Replace(table);
 
                     // Execute the operation.
-                    cloudtable.Execute(updateOperation);
+                    cloudTable.Execute(updateOperation);
                 }
-                    /*
-                    TableQuery<UploadedLogFiles> query =
-                   new TableQuery<UploadedLogFiles>().Where(
-                     TableQuery.CombineFilters(
-                           TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, filetype),
-                           TableOperators.And,
-                           TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.Equal, serverip)
-                    )
-               );
-                    */
-                /*
-                foreach (UploadedLogFiles table in cloudtable.ExecuteQuery(query))
-                {
-                    ServerInventory table = (from e in tsc.CreateQuery<ServerInventory>(serverinvTableName)
-                                         where e.PartitionKey == filetype && e.RowKey == serverip
-                                         select e).FirstOrDefault();
-
-                table.LAST_FILE_UP_DATETIME = fileDateTime;
-                table.LAST_FILE_UPLOAD = filename_;
-                try
-                {
-                    tsc.UpdateObject(table);
-                }
-                catch { }
-                */
+                  
             }
             catch
             {
@@ -389,15 +406,11 @@ namespace NetroAzureUpload
                 lgs.LAST_FILE_UPLOAD = filename_;
 
 
-                //    Netro_Log4.writeLocalServiceLog("NetroLogger5", Environment.MachineName, 0, "updx 3 " + filename_);
-              //  tsc.AddObject(serverinvTableName, lgs);
                 TableBatchOperation batchOperation = new TableBatchOperation();
                 batchOperation.Insert(lgs);
-                cloudtable.ExecuteBatch(batchOperation);
+                cloudTable.ExecuteBatch(batchOperation);
 
             }
-            // Netro_Log4.writeLocalServiceLog("NetroLogger5", Environment.MachineName, 0, "updx 4" + filename_);
-        //    tsc.SaveChanges();
 
 
             Netro_Log4.writeLocalServiceLog("NetroLogger5", Environment.MachineName, 0, "File uploaded to logs table");
@@ -414,7 +427,7 @@ namespace NetroAzureUpload
             blobRoot = blobRoot_;
             logsRoot = logsRoot_;
 
-            CloudBlobContainer rootContainer = Initialize(blobRoot_ + "/" + logsRoot_ );
+            BlobContainerClient rootContainer = Initialize( logsRoot_ );
 
         }
 
@@ -425,9 +438,11 @@ namespace NetroAzureUpload
             blobRoot = blobRoot_;
             logsRoot = logsRoot_;
 
+            Netro_Log4.writeLocalServiceLog("NetroLogger5", Environment.MachineName, 0, "Initialize container " + logsRoot_ );
 
-            
-            CloudBlobContainer rootContainer = Initialize(blobRoot_ + "/" + logsRoot_ );
+            BlobContainerClient rootContainer = Initialize( logsRoot_ );
+
+            Netro_Log4.writeLocalServiceLog("NetroLogger5", Environment.MachineName, 0, "Get Directory reference " + path);
 
             DirectoryInfo directoryContents = new DirectoryInfo(path);
 
@@ -446,7 +461,7 @@ namespace NetroAzureUpload
                       //  if (!fileAlreadyProcessed(filetype, fileCurrent.FullName, serverIp, md5, connString, Environment.MachineName))
                        // {
 
-                            UploadToAzure(fileCurrent.Name, fileCurrent.FullName, Environment.MachineName, fileCurrent.CreationTimeUtc, serverIp, connString, md5, filetype);
+                            UploadToAzure(fileCurrent.Name, fileCurrent.FullName, Environment.MachineName, fileCurrent.CreationTimeUtc, serverIp, ConfigSetterString, md5, filetype);
 
                         //}
                     }
@@ -455,10 +470,10 @@ namespace NetroAzureUpload
 
                         if (processCurrentFile == "Y")
                         {
-                            if (!fileAlreadyProcessed(filetype, fileCurrent.FullName, serverIp, md5, connString, Environment.MachineName))
+                            if (!fileAlreadyProcessed(filetype, fileCurrent.FullName, serverIp, md5, ConfigSetterString, Environment.MachineName))
                             {
                                 
-                                    UploadToAzure(fileCurrent.Name, fileCurrent.FullName, Environment.MachineName, fileCurrent.CreationTimeUtc, serverIp, connString, md5, filetype);
+                                    UploadToAzure(fileCurrent.Name, fileCurrent.FullName, Environment.MachineName, fileCurrent.CreationTimeUtc, serverIp, ConfigSetterString, md5, filetype);
                                 
                             }
                         }
@@ -477,46 +492,115 @@ namespace NetroAzureUpload
         public void UploadToAzure(string filename, string fullname, string serverName, DateTime creationTime, string serverIP , string connString, string md5, string filetype )
         {
 
-
-
-            string sourcefile = blobRoot + "/" + logsRoot + "/"  + serverName + "/" +   filename ;
+            string sourcefilefullname = blobRoot + "/" + logsRoot + "/"  + serverName + "/" +   filename ;
+            string sourcefile =  serverName + "/" + filename;
 
             Netro_Log4.writeLocalServiceLog("NetroLogger5", Environment.MachineName, 0, "Upload from: [" + fullname + "] To: [" + sourcefile  + "]");
 
-            CloudBlobContainer cbcontainer = blobStorage.GetContainerReference("netrologs5");
-            CloudBlockBlob blob = cbcontainer.GetBlockBlobReference(sourcefile);
 
-            //CloudBlockBlob blob = blobStorage.GetBlockBlobReference(sourcefile);
-
-
-
-            try
+            BlobClient blob = blobStorage.GetBlobClient(sourcefile);
+            if (!blob.Exists())
             {
-                // file already exists
-                blob.FetchAttributes();
-                //Netro_Log4.writeLocalServiceLog("NetroLogger5", Environment.MachineName, 0, "Blob already exists. Skipping");
-            }
-            catch
-            {
-                //upload
-                AsyncCallback callback = PutOperationCompleteCallback;
-                blobinfo_ bi = new blobinfo_();
-                bi.blob = blob;
-                bi.filename = fullname ;
-                bi.MD5 = md5; // GetMD5HashFromFile(fullname);
-                bi.blobname = sourcefile;
-                bi.creationDatetime = string.Format("{0:s}", creationTime);  //creationTime.ToString("yyyy-MM-ddTHH:mm:ss");
-                bi.serverIP =  serverIP;
-                bi.connstring = connString;
-                bi.servername = serverName;
-                bi.filetype = filetype;
 
-                FileStream fs = File.Open(fullname , FileMode.Open, FileAccess.Read);
-                Netro_Log4.writeLocalServiceLog("NetroLogger5", Environment.MachineName, 0, "Starting to upload async file[" + fullname + "] Hash [" + bi.MD5  +"]");
-                blob.BeginUploadFromStream(fs, callback, bi);
-  
+                blob.Upload(fullname);
+                IDictionary<string, string> metadata = new Dictionary<string, string>();
+
+                BlobHttpHeaders headers = new BlobHttpHeaders
+                {
+                    // Set the MIME ContentType every time the properties 
+                    // are updated or the field will be cleared
+                    ContentType = "text/plain",
+                    ContentLanguage = "en-us",
+                    
+                };
+
+                blob.SetHttpHeaders(headers);
+
+                
+                metadata["MD5"] = md5;
+                metadata["FULLNAME"] = fullname;
+                metadata["BATCHID"] = "0";
+                metadata["FILETYPE"] = filetype;
+                metadata["SERVERIP"] = serverIP;
+                metadata["SERVERNAME"] = serverName;
+                metadata["CREATIONDATETIME"] = string.Format("{0:s}", creationTime); 
+
+                blob.SetMetadata(metadata);
+
+                Netro_Log4.writeLocalServiceLog("NetroLogger5", Environment.MachineName, 0, " queue info[" + queue.Uri + "] ");
+
+                try
+                {
+                    
+                    queue.SendMessage(sourcefilefullname);
+
+                    Netro_Log4.writeLocalServiceLog("NetroLogger5", Environment.MachineName, 0, "Added to queue file[" + blob.Name + "] ");
+                }
+                catch (Exception ex)
+                {
+                    StringBuilder sb = new StringBuilder(ex.Message);
+                    Exception e = ex.InnerException;
+                    while (e != null)
+                    {
+                        sb.AppendLine("--->");
+                        sb.AppendLine(e.Message);
+
+                        e = e.InnerException;
+
+                    }
+                    Netro_Log4.writeLocalServiceLog("NetroLogger5", Environment.MachineName, 0, "Error adding to queue  file[" + blob.Name + "] " + sb.ToString());
+                }
+                try
+                {
+
+
+                    UpdateProcessedFile(filetype, fullname, serverIP, serverName, blob.Name, connString, md5);
+
+                    Netro_Log4.writeLocalServiceLog("NetroLogger5", Environment.MachineName, 0, "update processed file[" + blob.Name + "] ");
+                }
+                catch (Exception ex)
+                {
+                    StringBuilder sb = new StringBuilder(ex.Message);
+                    Exception e = ex.InnerException;
+                    while (e != null)
+                    {
+                        sb.AppendLine("--->");
+                        sb.AppendLine(e.Message);
+
+                        e = e.InnerException;
+
+                    }
+                    Netro_Log4.writeLocalServiceLog("NetroLogger5", Environment.MachineName, 0, "Error updating processed file  file[" + blob.Name + "] " + sb.ToString());
+                }
+                try
+                {
+
+
+                    UpdateServerInventory(filetype, fullname, serverIP, serverName, string.Format("{0:s}", DateTime.UtcNow),connString);
+
+                    Netro_Log4.writeLocalServiceLog("NetroLogger5", Environment.MachineName, 0, "update processed file[" + blob.Name + "] ");
+                }
+                catch (Exception ex)
+                {
+                    StringBuilder sb = new StringBuilder(ex.Message);
+                    Exception e = ex.InnerException;
+                    while (e != null)
+                    {
+                        sb.AppendLine("--->");
+                        sb.AppendLine(e.Message);
+
+                        e = e.InnerException;
+
+                    }
+                    Netro_Log4.writeLocalServiceLog("NetroLogger5", Environment.MachineName, 0, "Error updating inventory file[" + blob.Name + "] " + sb.ToString());
+                }
+                GC.Collect();
+
+
             }
+
         }
+        /*
         void PutOperationCompleteCallback(IAsyncResult result)
         {
 
@@ -539,7 +623,7 @@ namespace NetroAzureUpload
             {
 
                 CloudQueueMessage msg = new CloudQueueMessage(bi.blobname);
-                queue.AddMessage(msg);
+                queue.SendMessage(bi.blobname);
                 msg = null;
 
                 
@@ -584,7 +668,7 @@ namespace NetroAzureUpload
             {
 
 
-                UpdateServerInventory(bi.filetype, bi.filename, bi.serverIP, bi.servername,string.Format("{0:s}",DateTime.UtcNow));
+                UpdateServerInventory(bi.filetype, bi.filename, bi.serverIP, bi.servername,string.Format("{0:s}",DateTime.UtcNow),con);
 
                 Netro_Log4.writeLocalServiceLog("NetroLogger5", Environment.MachineName, 0, "update processed file[" + bi.blobname + "] ");
             }
@@ -604,15 +688,17 @@ namespace NetroAzureUpload
             }
             GC.Collect();
         }
-
+        */
         void bcreateQueue() {
 
+            queue = new QueueClient(ConfigSetterString, "netrologsqueue5");
 
-            CloudQueueClient queueStorage = account.CreateCloudQueueClient();
-			queue = queueStorage.GetQueueReference("netrologsqueue5");
-			//Trace.TraceInformation("Creating container and queue...");
+            //CloudQueueClient queueStorage = account.CreateCloudQueueClient();
 
-			bool containerAndQueueCreated = false;
+            //queueStorage.GetQueueReference("netrologsqueue5");
+            //Trace.TraceInformation("Creating container and queue...");
+
+            bool containerAndQueueCreated = false;
 			while (!containerAndQueueCreated)
 			{
 				try
@@ -647,7 +733,7 @@ namespace NetroAzureUpload
             
         }
 
-        CloudBlobContainer Initialize(string containerName)
+        BlobContainerClient Initialize(string containerName)
         {
 
 
@@ -656,6 +742,13 @@ namespace NetroAzureUpload
             {
                 if (containerName != blobRoot)
                 {
+
+                    BlobServiceClient blobServiceClient = new BlobServiceClient(ConfigSetterString);
+                    
+                    BlobContainerClient containerClient = blobServiceClient.GetBlobContainerClient(containerName);
+                    containerClient.SetAccessPolicy(Azure.Storage.Blobs.Models.PublicAccessType.BlobContainer);
+                    blobStorage = containerClient;
+
                     /*
                     CloudStorageAccount.SetConfigurationSettingPublisher((configName, configSetter) =>
                     {
@@ -663,7 +756,9 @@ namespace NetroAzureUpload
 
                     });
                     */
-                    account = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("DataConnectionString"));
+                    /*
+                    //account = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("DataConnectionString"));
+                    account = CloudStorageAccount.Parse(ConfigSetterString);
 
                     blobStorage = account.CreateCloudBlobClient();
                     //container = blobStorage.GetContainerReference(logsContainerName);
@@ -682,12 +777,13 @@ namespace NetroAzureUpload
                     BlobContainerPermissions permissions = new BlobContainerPermissions();
                     permissions.PublicAccess = BlobContainerPublicAccessType.Container;
                     BlobContainer.SetPermissions(permissions);
+                    */
 
                     bcreateQueue();
 
                     Netro_Log4.writeLocalServiceLog("NetroLogger5", Environment.MachineName, 0, "Azure blob & queue containers initialized");
 
-                    return BlobContainer;
+                    return containerClient;
                 }
                 else
                 {

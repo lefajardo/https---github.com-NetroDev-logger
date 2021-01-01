@@ -13,6 +13,11 @@ namespace NetroLogger5_Azure
         /// </summary>
         static void Main()
         {
+
+
+
+
+
             ServiceBase[] ServicesToRun;
             ServicesToRun = new ServiceBase[] 
 			{ 

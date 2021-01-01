@@ -10,3 +10,10 @@ C:\netro\NetroLogger6_Azure\log4net\bin\x86\Debug\log4net.xml
 C:\netro\NetroLogger6_Azure\log4net\obj\x86\Debug\log4net.csprojResolveAssemblyReference.cache
 C:\netro\NetroLogger6_Azure\log4net\obj\x86\Debug\log4net.dll
 C:\netro\NetroLogger6_Azure\log4net\obj\x86\Debug\log4net.pdb
+D:\code\netro\https---github.com-NetroDev-logger\NetroLogger6_Azure\log4net\obj\x86\Debug\log4net.dll
+D:\code\netro\https---github.com-NetroDev-logger\NetroLogger6_Azure\log4net\obj\x86\Debug\log4net.pdb
+D:\code\netro\https---github.com-NetroDev-logger\NetroLogger6_Azure\log4net\bin\x86\Debug\log4net.dll
+D:\code\netro\https---github.com-NetroDev-logger\NetroLogger6_Azure\log4net\bin\x86\Debug\log4net.pdb
+D:\code\netro\https---github.com-NetroDev-logger\NetroLogger6_Azure\log4net\bin\x86\Debug\log4net.xml
+D:\code\netro\https---github.com-NetroDev-logger\NetroLogger6_Azure\log4net\obj\x86\Debug\log4net.csproj.CoreCompileInputs.cache
+D:\code\netro\https---github.com-NetroDev-logger\NetroLogger6_Azure\log4net\obj\x86\Debug\log4net.csprojAssemblyReference.cache

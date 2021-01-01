@@ -42,7 +42,9 @@ namespace NetroLogger5_Azure
             {
                 InitializeWatcher();
             }
-            catch { }
+            catch (Exception ex ){
+                Netro_Log4.writeLocalServiceLog("NetroLogger5", Environment.MachineName, 0, string.Format("Error initializing. Err[{0}]", ex.Message));
+            }
         }
 
         protected override void OnStop()
@@ -190,8 +192,25 @@ namespace NetroLogger5_Azure
 
             Netro_Log4.writeLocalServiceLog("NetroLogger5", Environment.MachineName, 0, "key = " + _appConfig.Portal_Public_Key);
 
+
+
+            //Lester Dec. 24,2020, the webservice is no longer working to receive the services that are enabled for this server. Will read from the config file
+
+            if (string.IsNullOrEmpty(_appConfig.Service2))
+            {
+                services = new string[] { _appConfig.Service1 };
+                InitializeWatcher1(_appConfig.Service1, 1);
+            }
+            else
+            {
+                services = new string[] { _appConfig.Service1, _appConfig.Service2 };
+                InitializeWatcher1(_appConfig.Service1, 1);
+                InitializeWatcher1(_appConfig.Service2, 2);
+            }
+            
+
+            /*Netro_Log4.writeLocalServiceLog("NetroLogger5", Environment.MachineName, 0, "Services " + servicesd);
             string servicesd = InternalServicesProxy.Services(_appConfig.Portal_Public_Key);
-            Netro_Log4.writeLocalServiceLog("NetroLogger5", Environment.MachineName, 0, "Services " + servicesd);
             services = servicesd.Split(new char[] { '/' });
 
             if (services.Length > 1)
@@ -202,7 +221,7 @@ namespace NetroLogger5_Azure
             else
             {
                 InitializeWatcher1(services[0], 1);
-            }
+            }*/
 
         }
 
@@ -232,6 +251,9 @@ namespace NetroLogger5_Azure
 
         void InitializeWatcher1(string serviceid, int watcher)
         {
+
+            if (string.IsNullOrEmpty(serviceid)) return;
+
             if (watcher == 1)
             {
                 try
@@ -261,7 +283,7 @@ namespace NetroLogger5_Azure
 
 
                     NewFiles.EndInit();
-                    Netro_Log4.writeLocalServiceLog("NetroLogger5", Environment.MachineName, 0, "Netrologger5 Azure Service Started");
+                    Netro_Log4.writeLocalServiceLog("NetroLogger5", Environment.MachineName, 0, "Netrologger5 Azure Service Started "+serviceid);
                 }
                 catch (Exception ex)
                 {
@@ -427,10 +449,10 @@ namespace NetroLogger5_Azure
                     _appConfig.AzureStorage_BlobsKey, _appConfig.AzureStorage_BlobsRoot,
                     _appConfig.AzureStorage_BlobsBucket, _appConfig.ServerPublicIP,
                     watcherdata.processCurFile, getConnectionString(),
-                    services[0]);
+                    services[1]);
                 upl = null;
                 moveFilesUploaded(watcherdata.path, watcherdata.filter,
-                    services[0], _appConfig.ServerPublicIP,
+                    services[1], _appConfig.ServerPublicIP,
                     getConnectionString());
 
             }
@@ -473,7 +495,7 @@ namespace NetroLogger5_Azure
                         //Netro_Log4.writeLocalServiceLog("NetroLogger5", Environment.MachineName, 0, string.Format("not same day " + fileCurrent.FullName));
                         string md5 = upl.GetMD5HashFromFile(fileCurrent.FullName);
                         //Netro_Log4.writeLocalServiceLog("NetroLogger5", Environment.MachineName, 0, string.Format("got hash " + fileCurrent.FullName));
-                        if (upl.fileAlreadyProcessed(filetype, fileCurrent.FullName, serverIp, md5, connString, 
+                        if (upl.fileAlreadyProcessed(filetype, fileCurrent.FullName, serverIp, md5, _appConfig.AzureStorage_BlobsKey, 
                             Environment.MachineName))
                         {
                             //Netro_Log4.writeLocalServiceLog("NetroLogger5", Environment.MachineName, 0, string.Format("Move file to uploaded folder " + fileCurrent.FullName));
@@ -541,15 +563,15 @@ namespace NetroLogger5_Azure
                                     _appConfig.AzureStorage_BlobsKey, _appConfig.AzureStorage_BlobsRoot,
                                     _appConfig.AzureStorage_BlobsBucket, _appConfig.ServerPublicIP,
                                     watcherdata.processCurFile, getConnectionString(),
-                                    services[0]);
+                                    services[1]);
                 upl = null;
                 moveFilesUploaded(watcherdata.path, watcherdata.filter,
-                    services[0], _appConfig.ServerPublicIP,
+                    services[1], _appConfig.ServerPublicIP,
                     getConnectionString());                
             }
             catch (Exception ex)
             {
-                Netro_Log4.writeLocalServiceLog("NetroLogger5", Environment.MachineName, 0, string.Format("Start Upload. Err[{0}]", ex.Message));
+                Netro_Log4.writeLocalServiceLog("NetroLogger5", Environment.MachineName, 0, string.Format("Start Upload for renamed file. Err[{0}]", ex.Message));
             }
 
         }

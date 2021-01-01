@@ -22,3 +22,17 @@ C:\netro\NetroLogger6_Azure\clearlogs\bin\Debug\Microsoft.WindowsAzure.StorageCl
 C:\netro\NetroLogger6_Azure\clearlogs\obj\x86\Debug\clearlogs.csprojResolveAssemblyReference.cache
 C:\netro\NetroLogger6_Azure\clearlogs\obj\x86\Debug\clearlogs.exe
 C:\netro\NetroLogger6_Azure\clearlogs\obj\x86\Debug\clearlogs.pdb
+D:\code\netro\https---github.com-NetroDev-logger\NetroLogger6_Azure\clearlogs\bin\Debug\clearlogs.exe.config
+D:\code\netro\https---github.com-NetroDev-logger\NetroLogger6_Azure\clearlogs\bin\Debug\clearlogs.exe
+D:\code\netro\https---github.com-NetroDev-logger\NetroLogger6_Azure\clearlogs\bin\Debug\clearlogs.pdb
+D:\code\netro\https---github.com-NetroDev-logger\NetroLogger6_Azure\clearlogs\bin\Debug\Microsoft.WindowsAzure.Diagnostics.dll
+D:\code\netro\https---github.com-NetroDev-logger\NetroLogger6_Azure\clearlogs\bin\Debug\Microsoft.WindowsAzure.ServiceRuntime.dll
+D:\code\netro\https---github.com-NetroDev-logger\NetroLogger6_Azure\clearlogs\bin\Debug\Microsoft.WindowsAzure.StorageClient.dll
+D:\code\netro\https---github.com-NetroDev-logger\NetroLogger6_Azure\clearlogs\bin\Debug\Microsoft.WindowsAzure.Diagnostics.xml
+D:\code\netro\https---github.com-NetroDev-logger\NetroLogger6_Azure\clearlogs\bin\Debug\Microsoft.WindowsAzure.ServiceRuntime.xml
+D:\code\netro\https---github.com-NetroDev-logger\NetroLogger6_Azure\clearlogs\bin\Debug\Microsoft.WindowsAzure.StorageClient.xml
+D:\code\netro\https---github.com-NetroDev-logger\NetroLogger6_Azure\clearlogs\obj\x86\Debug\clearlogs.csproj.CoreCompileInputs.cache
+D:\code\netro\https---github.com-NetroDev-logger\NetroLogger6_Azure\clearlogs\obj\x86\Debug\clearlogs.csproj.CopyComplete
+D:\code\netro\https---github.com-NetroDev-logger\NetroLogger6_Azure\clearlogs\obj\x86\Debug\clearlogs.exe
+D:\code\netro\https---github.com-NetroDev-logger\NetroLogger6_Azure\clearlogs\obj\x86\Debug\clearlogs.pdb
+D:\code\netro\https---github.com-NetroDev-logger\NetroLogger6_Azure\clearlogs\obj\x86\Debug\clearlogs.csprojAssemblyReference.cache

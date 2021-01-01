@@ -18,3 +18,16 @@ C:\netro\NetroLogger6_Azure\NetroSharedFunctions\bin\x86\Debug\log4net.xml
 C:\netro\NetroLogger6_Azure\NetroSharedFunctions\obj\x86\Debug\NetroSharedFunctions.csprojResolveAssemblyReference.cache
 C:\netro\NetroLogger6_Azure\NetroSharedFunctions\obj\x86\Debug\NetroSharedFunctions.dll
 C:\netro\NetroLogger6_Azure\NetroSharedFunctions\obj\x86\Debug\NetroSharedFunctions.pdb
+D:\code\netro\https---github.com-NetroDev-logger\NetroLogger6_Azure\NetroSharedFunctions\bin\x86\Debug\NetroSharedFunctions.dll
+D:\code\netro\https---github.com-NetroDev-logger\NetroLogger6_Azure\NetroSharedFunctions\bin\x86\Debug\NetroSharedFunctions.pdb
+D:\code\netro\https---github.com-NetroDev-logger\NetroLogger6_Azure\NetroSharedFunctions\bin\x86\Debug\InternalServices.Proxy.dll
+D:\code\netro\https---github.com-NetroDev-logger\NetroLogger6_Azure\NetroSharedFunctions\bin\x86\Debug\log4net.dll
+D:\code\netro\https---github.com-NetroDev-logger\NetroLogger6_Azure\NetroSharedFunctions\bin\x86\Debug\InternalServices.Proxy.pdb
+D:\code\netro\https---github.com-NetroDev-logger\NetroLogger6_Azure\NetroSharedFunctions\bin\x86\Debug\InternalServices.Proxy.dll.config
+D:\code\netro\https---github.com-NetroDev-logger\NetroLogger6_Azure\NetroSharedFunctions\bin\x86\Debug\log4net.pdb
+D:\code\netro\https---github.com-NetroDev-logger\NetroLogger6_Azure\NetroSharedFunctions\bin\x86\Debug\log4net.xml
+D:\code\netro\https---github.com-NetroDev-logger\NetroLogger6_Azure\NetroSharedFunctions\obj\x86\Debug\NetroSharedFunctions.csprojAssemblyReference.cache
+D:\code\netro\https---github.com-NetroDev-logger\NetroLogger6_Azure\NetroSharedFunctions\obj\x86\Debug\NetroSharedFunctions.csproj.CoreCompileInputs.cache
+D:\code\netro\https---github.com-NetroDev-logger\NetroLogger6_Azure\NetroSharedFunctions\obj\x86\Debug\NetroSharedFunctions.csproj.CopyComplete
+D:\code\netro\https---github.com-NetroDev-logger\NetroLogger6_Azure\NetroSharedFunctions\obj\x86\Debug\NetroSharedFunctions.dll
+D:\code\netro\https---github.com-NetroDev-logger\NetroLogger6_Azure\NetroSharedFunctions\obj\x86\Debug\NetroSharedFunctions.pdb
